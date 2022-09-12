@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=test" >> $GITHUB_ENV
-          echo "DEPLOYMENT_USER=$(echo $GITHUB_ACTOR)" >> $GITHUB_ENV
+          echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
           echo "DEPLOYMENT_SUFFIX=$(echo "")" >> $GITHUB_ENV
           echo $GCP_SERVICE_ACCOUNT > sa.json
 
@@ -35,7 +35,7 @@ jobs:
         run: |
           echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=prod" >> $GITHUB_ENV
-          echo "DEPLOYMENT_USER=$(echo $GITHUB_ACTOR)" >> $GITHUB_ENV
+          echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
           echo "DEPLOYMENT_SUFFIX=$(echo "")" >> $GITHUB_ENV
           echo $GCP_SERVICE_ACCOUNT > sa.json
       
@@ -44,8 +44,8 @@ jobs:
         run: |
           echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=dev" >> $GITHUB_ENV
-          echo "DEPLOYMENT_USER=$(echo $GITHUB_ACTOR)" >> $GITHUB_ENV
-          echo "DEPLOYMENT_SUFFIX=$(echo $GITHUB_ACTOR)" >> $GITHUB_ENV
+          echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
+          echo "DEPLOYMENT_SUFFIX=cicduser" >> $GITHUB_ENV
           echo $GCP_SERVICE_ACCOUNT > sa.json
 
       # Create Dependencies (npm) Cache 
