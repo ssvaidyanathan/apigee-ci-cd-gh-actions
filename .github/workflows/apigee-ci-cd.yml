@@ -80,7 +80,7 @@ jobs:
       - name: Archive ESLint results
         uses: actions/upload-artifact@v2
         with:
-          name: apigeelint-report
+          name: eslint-report
           path: ./code_test_output/eslint-output.html
           retention-days: 5
 
@@ -91,7 +91,7 @@ jobs:
       - name: Archive ESLint results
         uses: actions/upload-artifact@v2
         with:
-          name: apigeelint-report
+          name: code-coverage-report
           path: ./code_test_output/coverage-output.html
           retention-days: 5
 
