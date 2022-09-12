@@ -114,19 +114,19 @@ jobs:
 
       # Configure targetservers (include others if needed)
       - name: Pre-deployment configuration
-        run: mvn -ntp apigee-config:targetservers -P$(APIGEE_PROFILE) -Ddeployment.suffix="$(DEPLOYMENT_SUFFIX)" -Dorg=$(APIGEE_ORG) -Dfile=sa.json
+        run: mvn -ntp apigee-config:targetservers -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Package proxy bundle
       - name: Package proxy bundle
-        run: mvn -ntp apigee-enterprise:configure -P$(APIGEE_PROFILE) -Ddeployment.suffix="$(DEPLOYMENT_SUFFIX)" -Dorg=$(APIGEE_ORG) -Dfile=sa.json
+        run: mvn -ntp apigee-enterprise:configure -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Deploy proxy bundle
       - name: Deploy proxy bundle
-        run: mvn -ntp apigee-enterprise:deploy -P$(APIGEE_PROFILE) -Ddeployment.suffix="$(DEPLOYMENT_SUFFIX)" -Dorg=$(APIGEE_ORG) -Dfile=sa.json
+        run: mvn -ntp apigee-enterprise:deploy -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Configure API Products, developers, apps (Uncomment below if needed)
       #- name: Post-deployment configuration
-      #  run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$(APIGEE_PROFILE) -Ddeployment.suffix="$(DEPLOYMENT_SUFFIX)" -Dorg=$(APIGEE_ORG) -Dfile=sa.json
+      #  run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Run Functional test
       - name: Functional Testing
