@@ -130,6 +130,9 @@
 										<include>resources/**</include>
 										<include>openapi/**</include>
 									</includes>
+									<excludes>
+										<include>test/integration/**/reporter.js</include>
+									</excludes>
 								</resource>
 							</resources>
 							<!--target -->
