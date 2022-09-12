@@ -88,7 +88,7 @@ jobs:
       - name: Unit Testing and Code Coverage
         run: npm run unit-test
 
-      - name: Archive ESLint results
+      - name: Archive Code Coverage results
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
@@ -110,7 +110,7 @@ jobs:
 
       # Prepare the config files that are env specific
       - name: Process Resources
-        run: mvn -ntp process-resources -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dcommit=$GIT_COMMIT -Dbranch=$GIT_BRANCH -Duser.name=$DEPLOYMENT_USER
+        run: mvn -ntp process-resources -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dcommit=$GITHUB_SHA -Dbranch=$GITHUB_REF_NAME -Duser.name=$DEPLOYMENT_USER
 
       # Configure targetservers (include others if needed)
       - name: Pre-deployment configuration
