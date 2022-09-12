@@ -26,6 +26,6 @@
 		"apigeelint": "mkdir -p code_test_output; apigeelint -s apiproxy -e PO013,PO025 -f html.js  > code_test_output/apigeelint-output.html",
 		"eslint": "mkdir -p code_test_output; eslint -c .eslintrc-jsc.yml --format html ./apiproxy/resources/jsc > code_test_output/eslint-output.html",
 		"unit-test": "mkdir -p code_test_output; mocha ./test/unit/*.js --reporter mocha-simple-html-reporter --reporter-options output=code_test_output/coverage-output.html",
-		"integration-test": "node ./node_modules/.bin/cucumber-js ./target/test/integration --format json:./target/reports.json --publish-quiet; node target/test/integration/index.js"
+		"integration-test": "node ./node_modules/.bin/cucumber-js ./target/test/integration --format json:./target/reports.json --publish-quiet; node test/integration/reporter.js"
 	}
 }
