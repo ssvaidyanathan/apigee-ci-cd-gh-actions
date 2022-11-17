@@ -196,7 +196,7 @@
 			<plugin>
 				<groupId>io.apigee.build-tools.enterprise4g</groupId>
 				<artifactId>apigee-edge-maven-plugin</artifactId>
-				<version>2.3.1</version>
+				<version>2.3.5</version>
 				<executions>
 					<execution>
 						<id>configure-bundle-step</id>
@@ -219,7 +219,7 @@
 			<plugin>
 			    <groupId>com.apigee.edge.config</groupId>
 			    <artifactId>apigee-config-maven-plugin</artifactId>
-			    <version>2.4.0</version>
+			    <version>2.4.4</version>
 			    <executions>
 			    	<execution>
 			            <id>create-config-keyvaluemaps</id>
