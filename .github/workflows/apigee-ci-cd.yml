@@ -4,7 +4,7 @@ name: Apigee CI with Maven
 on: push
 
 env:
-  DEFAULT_APIGEE_ORG: "ssv-apigee-asm-demo"
+  DEFAULT_APIGEE_ORG: "ssv-apigee-ngsaas-project2"
   GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel

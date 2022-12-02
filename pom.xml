@@ -40,7 +40,7 @@
 			<id>dev</id>
 			<properties>
 				<apigee.profile>dev</apigee.profile>
-				<apigee.env>eval</apigee.env>
+				<apigee.env>default-dev</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
@@ -49,7 +49,7 @@
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>34.117.135.82.nip.io</api.northbound.domain>
+				<api.northbound.domain>apix.ankurshukla-demos.com</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -57,7 +57,7 @@
 			<id>test</id>
 			<properties>
 				<apigee.profile>test</apigee.profile>
-				<apigee.env>eval</apigee.env>
+				<apigee.env>default-test</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
@@ -66,7 +66,7 @@
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>34.117.135.82.nip.io</api.northbound.domain>
+				<api.northbound.domain>api-test.ssvaidyanathan.com</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -74,7 +74,7 @@
 			<id>prod</id>
 			<properties>
 				<apigee.profile>prod</apigee.profile>
-				<apigee.env>prod</apigee.env>
+				<apigee.env>default-prod</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
@@ -83,7 +83,7 @@
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>prod.34.117.135.82.nip.io</api.northbound.domain>
+				<api.northbound.domain>api-prod.ssvaidyanathan.com</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
