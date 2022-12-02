@@ -19,12 +19,15 @@
 		"sinon": "^9.0.2"
 	},
 	"scripts": {
-		"devtest": "npm install; npm run lint; npm run unit-test; npm run devdeploy;",
+		"devtest": "npm install; npm run lintreport; npm run unit-test; npm run devdeploy;",
 		"devdeploy": "mvn clean install -Pdev -Dorg=$npm_config_org -Dbearer=$(gcloud auth print-access-token); npm run integration-test",
-		"lint": "npm run apigeelint && npm run eslint",
-		"apigee": "DEBUG=apigeelint:PO003 apigeelint --profile apigeex -s ./apiproxy -e PO013,PO025 -f table",
-		"apigeelint": "mkdir -p code_test_output; apigeelint -s apiproxy -e PO013,PO025 -f html.js  > code_test_output/apigeelint-output.html",
-		"eslint": "mkdir -p code_test_output; eslint -c .eslintrc-jsc.yml --format html ./apiproxy/resources/jsc > code_test_output/eslint-output.html",
+		"devcleanup": "rm -rf target node_modules code_test_output",
+		"apigeelint": "apigeelint -s apiproxy -e PO013,PO025 -f table.js ",
+		"eslint": "eslint -c .eslintrc-jsc.yml ./apiproxy/resources/jsc",
+		"lint": "npm run apigeelint; npm run eslint",
+		"apigeelintreport": "mkdir -p code_test_output; apigeelint -s apiproxy -e PO013,PO025 -f html.js  > code_test_output/apigeelint-output.html",
+		"eslintreport": "mkdir -p code_test_output; eslint -c .eslintrc-jsc.yml --format html ./apiproxy/resources/jsc > code_test_output/eslint-output.html",
+		"lintreport": "npm run apigeelintreport ; npm run eslintreport",
 		"unit-test": "mkdir -p code_test_output; mocha ./test/unit/*.js --reporter mocha-simple-html-reporter --reporter-options output=code_test_output/coverage-output.html",
 		"integration-test": "node ./node_modules/.bin/cucumber-js ./target/test/integration --format json:./target/reports.json --publish-quiet; node test/integration/reporter.js"
 	}
