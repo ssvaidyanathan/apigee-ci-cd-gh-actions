@@ -19,7 +19,7 @@
 		"sinon": "^9.0.2"
 	},
 	"scripts": {
-		"devtest": "npm install; npm run lint; npm run lintreport; npm run unit-test; npm run devdeploy;",
+		"devtest": "npm install; npm run lintreport; npm run unit-test; npm run devdeploy;",
 		"devdeploy": "mvn clean install -Pdev -Dorg=$npm_config_org -Dbearer=$(gcloud auth print-access-token); npm run integration-test",
 		"devcleanup": "rm -rf target node_modules code_test_output",
 		"apigeelint": "apigeelint -s apiproxy -e PO013,PO025 -f table.js ",
