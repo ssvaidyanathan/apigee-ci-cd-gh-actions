@@ -41,9 +41,6 @@
         "HKD": {
           "type": "number"
         },
-        "HRK": {
-          "type": "number"
-        },
         "HUF": {
           "type": "number"
         },
@@ -112,7 +109,6 @@
         "CZK",
         "DKK",
         "HKD",
-        "HRK",
         "HUF",
         "IDR",
         "ILS",
