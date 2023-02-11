@@ -16,6 +16,7 @@
 			<Step>
 				<Name>AssignMessage.SetTarget4XXErrorVariables</Name>
 			</Step>
+			<!-- comment -->
 		</FaultRule>
 		<FaultRule name="Target 404">
 			<Condition>
