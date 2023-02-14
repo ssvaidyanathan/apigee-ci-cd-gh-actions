@@ -19,7 +19,7 @@
 	<PreFlow>
 		<Request>
 			<Step>
-				<Name>AssignMessage.CopyRequest</Name>
+				<Name>AssignMessage.CopyRequest</Name> <!-- fix -->
 			</Step>
 		</Request>
 	</PreFlow>
