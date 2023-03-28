@@ -51,7 +51,6 @@
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>dev-34.120.73.187.nip.io</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
-				<apigee.googletoken.email>apigee-translation@${org}.iam.gserviceaccount.com</apigee.googletoken.email>
 			</properties>
 		</profile>
 		<profile>
@@ -96,7 +95,7 @@
 				<plugin>
 					<groupId>io.apigee.build-tools.enterprise4g</groupId>
 					<artifactId>apigee-edge-maven-plugin</artifactId>
-					<version>2.3.5</version>
+					<version>2.4.0</version>
 				</plugin>
 				<plugin>
 					<groupId>com.apigee.edge.config</groupId>
@@ -197,7 +196,7 @@
 			<plugin>
 				<groupId>io.apigee.build-tools.enterprise4g</groupId>
 				<artifactId>apigee-edge-maven-plugin</artifactId>
-				<version>2.3.5</version>
+				<version>2.4.0</version>
 				<executions>
 					<execution>
 						<id>configure-bundle-step</id>
