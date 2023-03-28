@@ -51,6 +51,7 @@
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>dev-34.120.73.187.nip.io</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
+				<apigee.googletoken.email>apigee-translation@${org}.iam.gserviceaccount.com</apigee.googletoken.email>
 			</properties>
 		</profile>
 		<profile>
