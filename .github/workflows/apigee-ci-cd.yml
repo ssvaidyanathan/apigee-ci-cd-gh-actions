@@ -4,7 +4,6 @@ name: Apigee CI with Maven
 on: push
 
 env:
-  DEFAULT_APIGEE_ORG: "ssv-apigee-ngsaas-project2"
   GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -24,7 +23,7 @@ jobs:
       - name: Set Variables for [Main] branch
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
+          echo "APIGEE_ORG=bap-amer-coe-demo1" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=test" >> $GITHUB_ENV
           echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
           echo "DEPLOYMENT_SUFFIX=$(echo "")" >> $GITHUB_ENV
@@ -33,7 +32,7 @@ jobs:
       - name: Set Variables for [Prod] branch
         if: github.ref == 'refs/heads/prod'
         run: |
-          echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
+          echo "APIGEE_ORG=sai-apigeex-demo" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=prod" >> $GITHUB_ENV
           echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
           echo "DEPLOYMENT_SUFFIX=$(echo "")" >> $GITHUB_ENV
@@ -42,10 +41,10 @@ jobs:
       - name: Set Variables for branch not [Main], not [Prod]
         if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/prod'
         run: |
-          echo "APIGEE_ORG=$(echo $DEFAULT_APIGEE_ORG)" >> $GITHUB_ENV
+          echo "APIGEE_ORG=bap-amer-coe-demo1" >> $GITHUB_ENV
           echo "APIGEE_PROFILE=dev" >> $GITHUB_ENV
           echo "DEPLOYMENT_USER=cicduser" >> $GITHUB_ENV
-          echo "DEPLOYMENT_SUFFIX=cicduser" >> $GITHUB_ENV
+          echo "DEPLOYMENT_SUFFIX=$(echo "")" >> $GITHUB_ENV
           echo $GCP_SERVICE_ACCOUNT > sa.json
 
       # Create Dependencies (npm) Cache 
