@@ -3,9 +3,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>apigee</groupId>
-	<artifactId>currency-gh-actions</artifactId>
+	<artifactId>currency</artifactId>
 	<version>v1</version>
-	<name>currency-gh-actions-${deployment.suffix}v1</name>
+	<name>currency-${deployment.suffix}v1</name>
 	<packaging>pom</packaging>
 	<pluginRepositories>
 		<pluginRepository>
