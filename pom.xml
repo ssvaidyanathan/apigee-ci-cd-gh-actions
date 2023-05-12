@@ -3,9 +3,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>apigee</groupId>
-	<artifactId>currency-gh-actions</artifactId>
+	<artifactId>currency</artifactId>
 	<version>v1</version>
-	<name>currency-gh-actions-${deployment.suffix}v1</name>
+	<name>currency-${deployment.suffix}v1</name>
 	<packaging>pom</packaging>
 	<pluginRepositories>
 		<pluginRepository>
@@ -40,16 +40,16 @@
 			<id>dev</id>
 			<properties>
 				<apigee.profile>dev</apigee.profile>
-				<apigee.env>default-dev</apigee.env>
+				<apigee.env>dev</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
-				<apigee.options>override</apigee.options> <!-- overrides is default and the only option -->
-				<apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
+				<apigee.options>override</apigee.options>
+				<apigee.bearer>${bearer}</apigee.bearer>
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>dev-34.120.73.187.nip.io</api.northbound.domain>
+				<api.northbound.domain>dev-34.160.105.96.nip.io</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -57,16 +57,16 @@
 			<id>test</id>
 			<properties>
 				<apigee.profile>test</apigee.profile>
-				<apigee.env>default-test</apigee.env>
+				<apigee.env>test</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
-				<apigee.options>override</apigee.options> <!-- overrides is default and the only option -->
-				<apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
+				<apigee.options>override</apigee.options>
+				<apigee.bearer>${bearer}</apigee.bearer>
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>test-34.120.73.187.nip.io</api.northbound.domain>
+				<api.northbound.domain>test-34.160.105.96.nip.io</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -74,16 +74,16 @@
 			<id>prod</id>
 			<properties>
 				<apigee.profile>prod</apigee.profile>
-				<apigee.env>default-prod</apigee.env>
+				<apigee.env>prod</apigee.env>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.apiversion>v1</apigee.apiversion>
 				<apigee.org>${org}</apigee.org>
-				<apigee.options>override</apigee.options> <!-- overrides is default and the only option -->
-				<apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
+				<apigee.options>override</apigee.options>
+				<apigee.bearer>${bearer}</apigee.bearer>
 				<apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
-				<api.northbound.domain>prod-34.120.73.187.nip.io</api.northbound.domain>
+				<api.northbound.domain>prod-34.160.9.20.nip.io</api.northbound.domain>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>

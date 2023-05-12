@@ -1,11 +1,11 @@
 {
-	"name": "currency-v1-gh-actions",
+	"name": "currency-v1",
 	"version": "1.0.0",
 	"devDependencies": {
 		"@cucumber/cucumber": "^7.3.0",
 		"@cucumber/pretty-formatter": "1.0.0-alpha.1",
-		"apickli": "^3.0.1",
-		"apigeelint": "^2.33.0",
+		"apickli": "^3.0.2",
+		"apigeelint": "^2.39.0",
 		"chai": "^3",
 		"chai-fuzzy": "^1",
 		"cucumber-html-reporter": "^5.5.0",
@@ -19,16 +19,12 @@
 		"sinon": "^9.0.2"
 	},
 	"scripts": {
-		"devtest": "npm install; npm run lintreport; npm run unit-test; npm run devdeploy;",
+		"devtest": "npm install; npm run lint; npm run unit-test; npm run devdeploy;",
 		"devdeploy": "mvn clean install -Pdev -Dorg=$npm_config_org -Dbearer=$(gcloud auth print-access-token); npm run integration-test",
-		"devcleanup": "rm -rf target node_modules code_test_output",
-		"apigeelint": "apigeelint -s apiproxy -e PO013,PO025 -f table.js ",
-		"eslint": "eslint -c .eslintrc-jsc.yml ./apiproxy/resources/jsc",
-		"lint": "npm run apigeelint; npm run eslint",
-		"apigeelintreport": "mkdir -p code_test_output; apigeelint -s apiproxy -e PO013,PO025 -f html.js  > code_test_output/apigeelint-output.html",
-		"eslintreport": "mkdir -p code_test_output; eslint -c .eslintrc-jsc.yml --format html ./apiproxy/resources/jsc > code_test_output/eslint-output.html",
-		"lintreport": "npm run apigeelintreport ; npm run eslintreport",
+		"lint": "npm run apigeelint && npm run eslint",
+		"apigeelint": "mkdir -p code_test_output; apigeelint -s apiproxy -e PO013,PO025 -f html.js  > code_test_output/apigeelint-output.html",
+		"eslint": "mkdir -p code_test_output; eslint -c .eslintrc-jsc.yml --format html ./apiproxy/resources/jsc > code_test_output/eslint-output.html",
 		"unit-test": "mkdir -p code_test_output; mocha ./test/unit/*.js --reporter mocha-simple-html-reporter --reporter-options output=code_test_output/coverage-output.html",
-		"integration-test": "node ./node_modules/.bin/cucumber-js ./target/test/integration --format json:./target/reports.json --publish-quiet; node test/integration/reporter.js"
+		"integration-test": "mkdir -p target/func_test_output; node ./node_modules/.bin/cucumber-js ./target/test/integration --format json:./target/func_test_output/reports.json --publish-quiet"
 	}
 }
