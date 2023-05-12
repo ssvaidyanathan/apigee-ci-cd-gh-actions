@@ -4,3 +4,4 @@ target/
 coverage/
 .nyc_output/
 code_test_output/
+.vscode/
