@@ -67,7 +67,7 @@ jobs:
 
       # Run Static Code analysis and upload lint results
       - name: Static Code Analysis
-        run: npm run lintreport
+        run: npm run lint
 
       - name: Archive Apigeelint results
         uses: actions/upload-artifact@v2
