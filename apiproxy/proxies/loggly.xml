@@ -19,6 +19,6 @@
 	</RouteRule>
 
 	<HTTPProxyConnection>
-		<BasePath>/currency-gh-actions/v1/logs</BasePath>
+		<BasePath>/currency/v1/logs</BasePath>
 	</HTTPProxyConnection>
 </ProxyEndpoint>
