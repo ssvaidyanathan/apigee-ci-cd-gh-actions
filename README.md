@@ -1,2 +1,2 @@
-# apigee-ci-cd-gh-actions
+# apigee-ci-cd
 Apigee CI/CD using GitHub Actions

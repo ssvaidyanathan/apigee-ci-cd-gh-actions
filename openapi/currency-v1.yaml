@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   title: Currency API v1
 host: demo-test.apigee.net
-basePath: /currency-gh-actions/v1
+basePath: /currency/v1
 schemes:
   - https
 paths:
