@@ -50,7 +50,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>dev-34.160.105.96.nip.io</api.northbound.domain>
-				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
+				<apigee.portal.siteId>bap-amer-coe-demo1-dev</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -68,7 +68,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>test-34.160.105.96.nip.io</api.northbound.domain>
-				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
+				<apigee.portal.siteId>bap-amer-coe-demo1-test</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -86,7 +86,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>prod-34.160.9.20.nip.io</api.northbound.domain>
-				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
+				<apigee.portal.siteId>sai-apigeex-demo-demo</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
