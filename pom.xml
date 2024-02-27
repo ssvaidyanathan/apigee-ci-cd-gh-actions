@@ -50,6 +50,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>dev-34.160.105.96.nip.io</api.northbound.domain>
+				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -67,6 +68,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>test-34.160.105.96.nip.io</api.northbound.domain>
+				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -84,6 +86,7 @@
 				<apigee.config.dir>./target/resources/edge</apigee.config.dir>
 				<apigee.config.options>update</apigee.config.options>
 				<api.northbound.domain>prod-34.160.9.20.nip.io</api.northbound.domain>
+				<apigee.portal.siteId>${siteId}</apigee.portal.siteId>
 				<api.testtag>~@wip,~@mock</api.testtag>
 			</properties>
 		</profile>
@@ -95,12 +98,12 @@
 				<plugin>
 					<groupId>io.apigee.build-tools.enterprise4g</groupId>
 					<artifactId>apigee-edge-maven-plugin</artifactId>
-					<version>2.4.0</version>
+					<version>2.5.0</version>
 				</plugin>
 				<plugin>
 					<groupId>com.apigee.edge.config</groupId>
 				    <artifactId>apigee-config-maven-plugin</artifactId>
-				    <version>2.4.4</version>
+				    <version>2.7.0</version>
 			    </plugin>
 			</plugins>
 		</pluginManagement>
@@ -196,7 +199,7 @@
 			<plugin>
 				<groupId>io.apigee.build-tools.enterprise4g</groupId>
 				<artifactId>apigee-edge-maven-plugin</artifactId>
-				<version>2.4.0</version>
+				<version>2.5.0</version>
 				<executions>
 					<execution>
 						<id>configure-bundle-step</id>
@@ -219,7 +222,7 @@
 			<plugin>
 			    <groupId>com.apigee.edge.config</groupId>
 			    <artifactId>apigee-config-maven-plugin</artifactId>
-			    <version>2.4.4</version>
+			    <version>2.7.0</version>
 			    <executions>
 			    	<execution>
 			            <id>create-config-keyvaluemaps</id>
@@ -242,7 +245,7 @@
 			                <goal>targetservers</goal>
 			            </goals>
 			        </execution>
-			        <!-- <execution>
+			        <execution>
 			            <id>create-config-apiproducts</id>
 			            <phase>install</phase>                        
 			            <goals>
@@ -262,7 +265,21 @@
 			            <goals>
 			                <goal>apps</goal>
 			            </goals>
-			        </execution> -->
+			        </execution>
+					<execution>
+                        <id>create-portal-categories</id>
+                        <phase>install</phase>                        
+                        <goals>
+                            <goal>apicategories</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>create-portal-docs</id>
+                        <phase>install</phase>                        
+                        <goals>
+                            <goal>apidocs</goal>
+                        </goals>
+                    </execution>
 			    </executions>
 			</plugin> 
 		</plugins>
