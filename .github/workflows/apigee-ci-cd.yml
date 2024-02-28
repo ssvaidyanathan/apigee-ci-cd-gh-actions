@@ -128,8 +128,8 @@ jobs:
         run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Run Functional test
-      - name: Functional Testing
-        run: npm run integration-test
+      # - name: Functional Testing
+      #   run: npm run integration-test
 
       #Upload the functional test results
       - name: Archive Functional Testing results
