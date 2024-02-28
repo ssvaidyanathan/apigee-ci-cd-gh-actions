@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Currency-v1",
+        "description": "OpenAPI Specification for the Currency API Version 1",
+        "anonAllowed": true,
+        "imageUrl": "",
+        "requireCallbackUrl": false,
+        "published": true,
+        "apiProductName": "currencyProduct",
+        "categories": [
+            "currency"
+        ],
+        "oasDocumentation": {
+       "spec": {
+          "displayName": "Currency-v1",
+          "file": "./target/openapi/currency-v1.yaml"
+        }
+     }
+    }
+]
