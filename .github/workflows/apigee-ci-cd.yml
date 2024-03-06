@@ -128,16 +128,16 @@ jobs:
         run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Run Functional test
-      # - name: Functional Testing
-      #   run: npm run integration-test
+      - name: Functional Testing
+        run: npm run integration-test
 
       #Upload the functional test results
-      # - name: Archive Functional Testing results
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: functional-test-report
-      #     path: ./target/cucumber_report.html
-      #     retention-days: 5
+      - name: Archive Functional Testing results
+        uses: actions/upload-artifact@v2
+        with:
+          name: functional-test-report
+          path: ./target/cucumber_report.html
+          retention-days: 5
        
       # Publish to Portal
       - name: Publish to portal
