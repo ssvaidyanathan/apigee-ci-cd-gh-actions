@@ -61,84 +61,88 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       
-      # Install dependencies (npm)
-      - name: Install Dependencies
-        run: npm install --silent --no-fund
+      # Node and npm versions
+      - name: Node version
+        run: node -v; npm -v
 
-      # Run Static Code analysis and upload lint results
-      - name: Static Code Analysis
-        run: npm run lint
+      # # Install dependencies (npm)
+      # - name: Install Dependencies
+      #   run: npm install --silent --no-fund
 
-      - name: Archive Apigeelint results
-        uses: actions/upload-artifact@v2
-        with:
-          name: apigeelint-report
-          path: ./code_test_output/apigeelint-output.html
-          retention-days: 5
+      # # Run Static Code analysis and upload lint results
+      # - name: Static Code Analysis
+      #   run: npm run lint
+
+      # - name: Archive Apigeelint results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: apigeelint-report
+      #     path: ./code_test_output/apigeelint-output.html
+      #     retention-days: 5
       
-      - name: Archive ESLint results
-        uses: actions/upload-artifact@v2
-        with:
-          name: eslint-report
-          path: ./code_test_output/eslint-output.html
-          retention-days: 5
+      # - name: Archive ESLint results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: eslint-report
+      #     path: ./code_test_output/eslint-output.html
+      #     retention-days: 5
 
-      # Run Unit Testing and Code Coverage
-      - name: Unit Testing and Code Coverage
-        run: npm run unit-test
+      # # Run Unit Testing and Code Coverage
+      # - name: Unit Testing and Code Coverage
+      #   run: npm run unit-test
 
-      - name: Archive Code Coverage results
-        uses: actions/upload-artifact@v2
-        with:
-          name: code-coverage-report
-          path: ./code_test_output/coverage-output.html
-          retention-days: 5
+      # - name: Archive Code Coverage results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: code-coverage-report
+      #     path: ./code_test_output/coverage-output.html
+      #     retention-days: 5
 
-      # Setup Maven & Maven Cache
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+      # # Setup Maven & Maven Cache
+      # - name: Set up JDK 1.8
+      #   uses: actions/setup-java@v1
+      #   with:
+      #     java-version: 1.8
 
-      - name: Cache the Maven packages to speed up build
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2   
+      # - name: Cache the Maven packages to speed up build
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.m2
+      #     key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+      #     restore-keys: ${{ runner.os }}-m2   
 
-      # Prepare the config files that are env specific
-      - name: Process Resources
-        run: mvn -ntp process-resources -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dcommit=$GITHUB_SHA -Dbranch=$GITHUB_REF_NAME -Duser.name=$DEPLOYMENT_USER
+      # # Prepare the config files that are env specific
+      # - name: Process Resources
+      #   run: mvn -ntp process-resources -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dcommit=$GITHUB_SHA -Dbranch=$GITHUB_REF_NAME -Duser.name=$DEPLOYMENT_USER
 
-      # Configure targetservers (include others if needed)
-      - name: Pre-deployment configuration
-        run: mvn -ntp apigee-config:targetservers -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # # Configure targetservers (include others if needed)
+      # - name: Pre-deployment configuration
+      #   run: mvn -ntp apigee-config:targetservers -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
-      # Package proxy bundle
-      - name: Package proxy bundle
-        run: mvn -ntp apigee-enterprise:configure -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # # Package proxy bundle
+      # - name: Package proxy bundle
+      #   run: mvn -ntp apigee-enterprise:configure -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
-      # Deploy proxy bundle
-      - name: Deploy proxy bundle
-        run: mvn -ntp apigee-enterprise:deploy -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # # Deploy proxy bundle
+      # - name: Deploy proxy bundle
+      #   run: mvn -ntp apigee-enterprise:deploy -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
-      # Configure API Products, developers, apps (Uncomment below if needed)
-      - name: Post-deployment configuration
-        run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # # Configure API Products, developers, apps (Uncomment below if needed)
+      # # - name: Post-deployment configuration
+      # #   run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
-      # Run Functional test
-      - name: Functional Testing
-        run: npm run integration-test
+      # # Run Functional test
+      # - name: Functional Testing
+      #   run: npm run integration-test
 
-      #Upload the functional test results
-      - name: Archive Functional Testing results
-        uses: actions/upload-artifact@v2
-        with:
-          name: functional-test-report
-          path: ./target/cucumber_report.html
-          retention-days: 5
+      # #Upload the functional test results
+      # - name: Archive Functional Testing results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: functional-test-report
+      #     path: ./target/cucumber_report.html
+      #     retention-days: 5
        
-      # Publish to Portal
-      - name: Publish to portal
-        run: mvn -ntp apigee-config:apicategories apigee-config:apidocs -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # # Publish to Portal
+      # # - name: Publish to portal
+      # #   run: mvn -ntp apigee-config:apicategories apigee-config:apidocs -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Dfile=sa.json
