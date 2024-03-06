@@ -61,6 +61,10 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       
+      # Node and npm versions
+      - name: Node version
+        run: node -v; npm -v
+
       # Install dependencies (npm)
       - name: Install Dependencies
         run: npm install --silent --no-fund
@@ -124,8 +128,8 @@ jobs:
         run: mvn -ntp apigee-enterprise:deploy -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Configure API Products, developers, apps (Uncomment below if needed)
-      #- name: Post-deployment configuration
-      #  run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
+      # - name: Post-deployment configuration
+      #   run: mvn -ntp apigee-config:apiproducts apigee-config:developers apigee-config:apps -P$APIGEE_PROFILE -Ddeployment.suffix="$DEPLOYMENT_SUFFIX" -Dorg=$APIGEE_ORG -Dfile=sa.json
 
       # Run Functional test
       - name: Functional Testing
@@ -138,3 +142,7 @@ jobs:
           name: functional-test-report
           path: ./target/cucumber_report.html
           retention-days: 5
+       
+      # Publish to Portal
+      # - name: Publish to portal
+      #   run: mvn -ntp apigee-config:apicategories apigee-config:apidocs -P$APIGEE_PROFILE -Dorg=$APIGEE_ORG -Dfile=sa.json
