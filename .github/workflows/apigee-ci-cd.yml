@@ -74,14 +74,14 @@ jobs:
         run: npm run lint
 
       - name: Archive Apigeelint results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: apigeelint-report
           path: ./code_test_output/apigeelint-output.html
           retention-days: 5
       
       - name: Archive ESLint results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: eslint-report
           path: ./code_test_output/eslint-output.html
@@ -92,7 +92,7 @@ jobs:
         run: npm run unit-test
 
       - name: Archive Code Coverage results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: code-coverage-report
           path: ./code_test_output/coverage-output.html
@@ -137,7 +137,7 @@ jobs:
 
       #Upload the functional test results
       - name: Archive Functional Testing results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: functional-test-report
           path: ./target/cucumber_report.html
